@@ -1,22 +1,11 @@
-const fs=require("fs")
-const two=require('./second')
+const express=require('express');
 
-console.log(two.things)
+const app = express();
 
-two.greet();
-
-const obj=new two.Student(1,"Raj")
-
-obj.display();
-
-fs.readFile("package.json","utf-8",function(err,data){
-    if(err) 
-       console.log(err);
-    else
-       console.log(data);
-
+app.get("/",function(request,response){
+    response.send("Hey Hi!!! Node is up and running")
 })
 
-console.log("logic after file read");
-console.log("Go ahead")
-console.log("Take it")
+app.listen("4000",function(){
+    console.log("Server is started on port 4000")
+})
