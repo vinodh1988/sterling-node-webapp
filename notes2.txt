@@ -1,0 +1,25 @@
+
+
+Inbuilt libraries
+
+External libraries
+
+
+Tools?
+
+ npm 
+ 
+ test -test runners
+ compile - typescript to js - compilers
+ transpile - one version of js to other
+ linting - checking the quality of the code?
+ run apps 
+ 
+external libraries & tools
+
+Tools?
+
+    always download it in global scope
+	
+	npm install -g <toolname>
+

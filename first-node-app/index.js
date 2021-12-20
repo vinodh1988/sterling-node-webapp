@@ -18,3 +18,5 @@ fs.readFile("package.json","utf-8",function(err,data){
 })
 
 console.log("logic after file read");
+console.log("Go ahead")
+console.log("Take it")
