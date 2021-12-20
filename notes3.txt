@@ -1,0 +1,25 @@
+
+
+http protocal
+
+  anything from client to server is called request and since http protocol is
+  used it is called http request
+  
+  if you are making http request,the client can actually 
+  request to server to handle the request in a specific way
+  by specifying http verb/method in the request
+  
+  the populat http methods are 
+  
+  get  - client wants a resource from server
+  post  - client wants to send data/resource
+  put  - client wants to update/replace resource
+  delete   - client want to delete resource
+  patch  - client wants to partially update resource
+  
+  -------------------------
+  
+  connect
+  trace
+  option
+  head
