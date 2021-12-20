@@ -1,0 +1,60 @@
+
+
+node - node interpreter
+
+       runtime for node js application
+	   
+	   
+npm  -node package manager?
+
+       to manage nodejs application
+	   
+	    generally we use this utility to
+		
+		1. to setup node project
+		2. to build node project
+		3. to run test cases
+		4. to run node application
+		5. to download dependencies
+		6. to publish your project to npm repositories
+		
+
+Node has lot of inbuilt libraries
+which is organized in the form of modules
+
+in node js modules are managed by using a framework called common js
+
+to import any module in node js we use a function called require?
+
+recently in node 17, node js has also intorduced es based module system
+
+
+Node js comes with few Global variables
+
+Node js cannot run browser features for example
+
+document 
+alert
+confirm
+navigator
+prompt
+
+ie., window is not supported in node js
+
+Beyond the global variables and inbuilt modules
+
+
+node js has worlds largest ecosystem of libraries
+to work with
+   
+   databases [rdbms,nosql]
+   mail servers
+   third party softwares
+   pdfs, images and other file formats
+   network protocols
+   
+   to download the libraries for your project
+   we use npm
+ ----------------------------------------------------------
+
+		
