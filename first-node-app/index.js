@@ -17,6 +17,10 @@ app.use(express.static(path.join(__dirname, 'node_modules/bootstrap/dist/css')))
 
 app.use(express.static(path.join(__dirname, 'node_modules/bootstrap/dist/js')));
 
+app.set('views', path.join(__dirname, 'public/views'));//setting the path of template files
+app.set('view engine', 'pug'); //configuring view Engine
+
+
 app.get("/",function(request,response){
     response.send("Hey Hi!!! Node is up and running")
 })
@@ -30,6 +34,15 @@ app.post("/store",function(request,response){
          else
             response.redirect("/home")
      })   
+})
+
+app.get("/people-template",function(request,response){
+    ops.readAll(function(err,data){
+        if(err) 
+            response.send("No Data found")
+        else
+            response.render('people',{people:data})
+    })
 })
 
 app.get("/home",function(request,response){
