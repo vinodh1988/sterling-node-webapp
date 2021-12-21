@@ -1,5 +1,6 @@
 const express=require('express');
 const path = require('path');
+const ops = require("./database/dbops")
 
 const app = express();
 
@@ -23,7 +24,12 @@ app.get("/",function(request,response){
 app.post("/store",function(request,response){
      console.log(request.body)
      const {sno,name,city}=request.body
-     response.redirect("/home");
+     ops.addPerson(sno,name,city,function(err,data){
+         if(err) 
+            response.status(500).send("Server error")
+         else
+            response.redirect("/home")
+     })   
 })
 
 app.get("/home",function(request,response){
