@@ -1,6 +1,7 @@
 const express=require('express');
 const path = require('path');
 const ops = require("./database/dbops")
+const people = require('./routes/person-api/people')
 
 const app = express();
 
@@ -20,6 +21,7 @@ app.use(express.static(path.join(__dirname, 'node_modules/bootstrap/dist/js')));
 app.set('views', path.join(__dirname, 'public/views'));//setting the path of template files
 app.set('view engine', 'pug'); //configuring view Engine
 
+app.use("/people-api",people);
 
 app.get("/",function(request,response){
     response.send("Hey Hi!!! Node is up and running")
@@ -34,6 +36,7 @@ app.post("/store",function(request,response){
          else
             response.redirect("/home")
      })   
+     response.send("hi")
 })
 
 app.get("/people-template",function(request,response){
