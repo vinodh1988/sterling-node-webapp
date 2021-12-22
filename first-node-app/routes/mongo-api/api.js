@@ -21,4 +21,22 @@ route.post("/people",function(request,response){
     })
 })
 
+route.put("/people/:sno",function(request,response){
+     people.updateMany({sno:request.params.sno},{$set:request.body},function(err,data){
+    if(err)
+        response.status(500).send("Server error");
+    else
+        response.json({result:"Successfuly updated"})
+     })
+})
+
+route.patch("/people",function(request,response){
+    people.updateMany({sno:request.query.sno},{$set:request.body},function(err,data){
+   if(err)
+       response.status(500).send("Server error");
+   else
+       response.json({result:"Successfuly updated"})
+    })
+})
+
 module.exports = route
