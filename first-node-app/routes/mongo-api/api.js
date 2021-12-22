@@ -39,4 +39,14 @@ route.patch("/people",function(request,response){
     })
 })
 
+
+route.delete("/people/:sno",function(request,response){
+    people.remove({sno:request.params.sno},function(err,data){
+   if(err)
+       response.status(500).send("Server error");
+   else
+       response.json({result:"Successfully Deleted"})
+    })
+})
+
 module.exports = route

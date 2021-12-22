@@ -3,6 +3,7 @@ const path = require('path');
 const ops = require("./database/dbops")
 const people = require('./routes/person-api/people')
 const mongoapi =require('./routes/mongo-api/api')
+const userapi =require('./routes/user-api/user')
 const app = express();
 
 var mongoose = require('mongoose');
@@ -36,6 +37,7 @@ app.set('view engine', 'pug'); //configuring view Engine
 
 app.use("/people-api",people);
 app.use("/mongo-api",mongoapi);
+app.use("/users",userapi);
 
 app.get("/",function(request,response){
     response.send("Hey Hi!!! Node is up and running")
