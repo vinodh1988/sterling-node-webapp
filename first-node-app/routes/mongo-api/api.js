@@ -11,4 +11,14 @@ route.get("/people",function(request,response){
     })
 })
 
+route.post("/people",function(request,response){
+    
+    people.insertMany(request.body,function(err,data){
+        if(err)
+            response.status(500).send("Server error");
+        else
+            response.json(request.body)
+    })
+})
+
 module.exports = route
