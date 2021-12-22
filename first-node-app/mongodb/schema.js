@@ -6,7 +6,7 @@ var people=mongoose.model('people',new mongoose.Schema(
        name: String,
        city: String
      }
-),
-'people');
+,
+{collection:'people',versionKey: false}));
 
 module.exports=people;
