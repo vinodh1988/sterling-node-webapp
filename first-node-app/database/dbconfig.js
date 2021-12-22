@@ -3,7 +3,7 @@
 var mysql      = require('mysql');
 
 var connection = mysql.createConnection({
-  host     : process.env.MYSQL_SERVER,
+  host     : '13.233.83.152',
   user     : process.env.MYSQL_USER,
   password : process.env.MYSQL_PASSWORD,
   database : 'sterling'
