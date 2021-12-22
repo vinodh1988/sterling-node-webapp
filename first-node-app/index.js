@@ -5,6 +5,19 @@ const people = require('./routes/person-api/people')
 
 const app = express();
 
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/sterling');
+
+
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+
+db.once('open', function() {
+  console.log("mongo db connection is open");
+});
+
+
+
 app.use(express.urlencoded({
     extended:true
 }))
