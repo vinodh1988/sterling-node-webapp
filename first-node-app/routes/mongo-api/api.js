@@ -1,8 +1,8 @@
 const express=require('express');
 const route=express.Router();
 const people=require('../../mongodb/schema')
-
-route.get("/people",function(request,response){
+const passport = require('passport')
+route.get("/people",passport.authenticate('jwt',{session:false}),function(request,response){
     people.find({},{_id:0},function(err,data){
         if(err)
             response.status(500).send("Server error");

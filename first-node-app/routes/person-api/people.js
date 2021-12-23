@@ -1,6 +1,7 @@
 const express=require('express');
 const route=express.Router();
 const ops = require('../../database/dbops')
+const passport =require('passport')
 
 route.get("/people",function(request,response){
     ops.readAll(function(err,data){

@@ -4,6 +4,8 @@ var ops=require("../../database/dbops")
 var route=express.Router()
 var crypto=require('../../security/crypto')
 const jwt=require("jsonwebtoken");
+var passport = require("passport")
+require('../../security/tokenverify')(passport)
 
 
 route.post("/signup",async function(request,response){
@@ -32,7 +34,7 @@ route.post("/signin",async function(request,response){
          let user={username:username,password:originalencrypted}
          if(await crypto.compare(password,originalencrypted)){
                
-         let token = jwt.sign(user,"sterling-web-app")
+         let token = jwt.sign(user,"sterling-web-app-secret-key")
          
          response.json({success:true,access_token: token})
          }

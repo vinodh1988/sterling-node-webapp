@@ -5,6 +5,8 @@ const people = require('./routes/person-api/people')
 const mongoapi =require('./routes/mongo-api/api')
 const userapi =require('./routes/user-api/user')
 const app = express();
+const passport=require('passport')
+app.use(passport.initialize());
 
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/sterling');
