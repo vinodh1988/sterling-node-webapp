@@ -23,5 +23,27 @@ route.post("/signup",async function(request,response){
       }
 })
 
+route.post("/signin",async function(request,response){
+      const {username,password}=request.body 
+      try{
+         
+         let originalencrypted=await ops.getPassword(username)
+         let user={username:username,password:originalencrypted}
+         if(await crypto.compare(password,originalencrypted)){
+               response.json("Logged in")
+         //let token = jwt.sign(user,"express-app-api")
+         //response.json({success:true,access_token: token})
+         }
+         else
+            response.status(401).send("Not Authorized")
+   }
+   catch(e){
+       console.log(e)
+       response.status(500).send("Cannot sign in")
+   }
+})
+
+
+
 
 module.exports = route
