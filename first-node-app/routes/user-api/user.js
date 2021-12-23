@@ -3,6 +3,7 @@ var express = require("express")
 var ops=require("../../database/dbops")
 var route=express.Router()
 var crypto=require('../../security/crypto')
+const jwt=require("jsonwebtoken");
 
 
 route.post("/signup",async function(request,response){
@@ -30,9 +31,10 @@ route.post("/signin",async function(request,response){
          let originalencrypted=await ops.getPassword(username)
          let user={username:username,password:originalencrypted}
          if(await crypto.compare(password,originalencrypted)){
-               response.json("Logged in")
-         //let token = jwt.sign(user,"express-app-api")
-         //response.json({success:true,access_token: token})
+               
+         let token = jwt.sign(user,"sterling-web-app")
+         
+         response.json({success:true,access_token: token})
          }
          else
             response.status(401).send("Not Authorized")
